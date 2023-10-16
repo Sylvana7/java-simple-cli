@@ -11,6 +11,7 @@ public class cli {
            System.out.print("> ");
            while (true) {
                    String command = scanner.nextLine();
+                   String[] array = command.split(" ", 2);
                    String output = "";
                    if (command.equals("exit")) {
                          break;
@@ -43,12 +44,16 @@ public class cli {
         } else if (command.equals("version")) {
                    output = System.getProperty("os.version");
 
-        } else if (command.startsWith("printenv")) {
-                   String str = "printenv";
-                   String[] printenv = str.split(" ");
-                  output = System.getenv("JAVA JDK");
+        } else if (array[0].equals("printenv")) {
+                   if (array.length >= 2) {
+                  output = System.getenv(array[1]);
                   output = output == null ? "" : output;
-
+                  }
+       } else if (array[0].equals("echo")) {
+                 if (array.length >= 2) {
+                  output = array[1];
+                  output = output == null ? "" : output;
+                 }
         } else {
                   output = "command '" + command + "' not found.";
             }

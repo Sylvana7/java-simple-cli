@@ -17,20 +17,20 @@ public class cli {
                          break;
                    }
           
-                   else if (command.equals("localDate")) {
-                      LocalDate localDate = LocalDate.now();
-                      output = localDate.toString();
+                   else if (command.equals("date")) {
+                      LocalDate date = LocalDate.now();
+                      output = date.toString();
                       
                     }      
                  
-                   else if (command.equals("localTime")) {
-                      LocalTime localTime = LocalTime.now();
-                      output = localTime.toString();
+                   else if (command.equals("time")) {
+                      LocalTime time = LocalTime.now();
+                      output = time.toString();
                      
 
-                 } else if (command.equals("localDateTime")) { 
-                      LocalDateTime localDateTime = LocalDateTime.now();
-                      output = localDateTime.toString();
+                 } else if (command.equals("dateTime")) { 
+                      LocalDateTime dateTime = LocalDateTime.now();
+                      output = dateTime.toString();
 
              } else if (command.equals("useraccount")) {
                      output = System.getProperty("user.name");
@@ -38,11 +38,9 @@ public class cli {
              } else if (command.equals("userhome")) {
                      output = System.getProperty("user.home");
 
-         } else if (command.equals("name")) {
-                    output = System.getProperty("os.name");
-
-        } else if (command.equals("version")) {
-                   output = System.getProperty("os.version");
+         } else if (command.equals("nameversion")) {
+                   
+                    output = System.getProperty("os.name") + " " + System.getProperty("os.version");
 
         } else if (array[0].equals("printenv")) {
                    if (array.length >= 2) {

@@ -47,13 +47,16 @@ public class Cli {
 				output = token==null? "" : token;
                              	
 		   } else{
-			 Map<String, String> env = System.getenv();
-                       for (Map.Entry<String, String> entry  : env.entrySet()) { 
- 			  output += entry.getKey() + "=" + entry.getValue() + System.lineSeparator();
-                   }	
-		   }
-                   
-             } 
+			StringBuilder sb = new StringBuilder();
+				for (String allenvironment : System.getenv().keySet()){
+					sb.append(allenvironment).append("=").append(System.getenv(allenvironment)).append(System.lineSeparator());
+		}
+		
+			output = sb.toString();
+                 }  
+                }
+
+	  
 		   else if (array[0].equals("ls")) {
 			if(array.length >= 2) {
 				String directoryPath = array[1];
